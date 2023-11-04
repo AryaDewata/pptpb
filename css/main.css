@@ -159,6 +159,31 @@
   margin-right: 4px;
   color: white;
 }
+* body .container #teams {
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  * body .container #teams {
+    font-size: 11px;
+  }
+}
+* body .container #teams p {
+  margin-bottom: 4px;
+}
+* body .container #teams table {
+  width: 100%;
+}
+* body .container #teams table tr td {
+  padding: 2px 0;
+}
+* body .container #teams table img {
+  width: 18px;
+}
+@media (max-width: 480px) {
+  * body .container #teams table img {
+    width: 14px;
+  }
+}
 * body .container footer {
   font-size: 11px;
   text-align: center;
