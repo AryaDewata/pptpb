@@ -13,7 +13,7 @@ let teams = [
     sekolah: "SMP Negeri 1 Sukasada",
     logo: "assets/logo-smp-negeri-1-sukasada.jpg",
   },
-  { sekolah: "SMP Mutiara Singaraja", logo: "assets/logo-smp-mutiara-singaraja.png" },
+  { sekolah: "SMP Mutiara", logo: "assets/logo-smp-mutiara-singaraja.png" },
   {
     sekolah: "MTs. Mardlatillah",
     logo: "assets/logo-madrasah-tsanawiyah-mardlatillah-singaraja.jpeg",
