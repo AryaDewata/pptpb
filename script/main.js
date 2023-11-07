@@ -1,23 +1,20 @@
 // Futsal Teams
 let teams = [
+  { sekolah: "SMP Negeri 1 Singaraja (A)", logo: "assets/logo-smp-negeri-1-singaraja.jpg" },
+  { sekolah: "SMP Negeri 1 Singaraja (B)", logo: "assets/logo-smp-negeri-1-singaraja.jpg" },
   {
     sekolah: "SMP Negeri 2 Singaraja",
     logo: "assets/logo-smp-negeri-2-singaraja.png",
   },
-  { sekolah: "SMP Negeri 3 Singaraja", logo: "assets/logo-smp-negeri-3-singaraja.jpeg" },
+  {
+    sekolah: "SMP Negeri 4 Singaraja",
+    logo: "assets/logo-smp-negeri-4-singaraja.jpg",
+  },
   {
     sekolah: "SMP Negeri 6 Singaraja",
     logo: "assets/logo-smp-negeri-6-singaraja.png",
   },
-  {
-    sekolah: "SMP Negeri 1 Sukasada",
-    logo: "assets/logo-smp-negeri-1-sukasada.jpg",
-  },
-  { sekolah: "SMP Mutiara", logo: "assets/logo-smp-mutiara-singaraja.png" },
-  {
-    sekolah: "MTs. Mardlatillah",
-    logo: "assets/logo-madrasah-tsanawiyah-mardlatillah-singaraja.jpeg",
-  },
+  { sekolah: "SMP Lab Singaraja", logo: "assets/logo-smp-laboratorium-singaraja.png" },
 ];
 
 // Beep Sound Effect
@@ -29,15 +26,21 @@ function beep() {
 }
 
 // Shuffle Button Event
+let group1Teams = teams.slice(0, 3).map((e) => e.sekolah);
+let group2Teams = teams.slice(3, 6).map((e) => e.sekolah);
 document.querySelector("#shuffle").addEventListener("click", function () {
   beep();
   this.remove();
   let i = 0;
   let interval = setInterval(() => {
-    teams = teams
-      .map((value) => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
+    do {
+      teams = teams
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+      group1Teams = teams.slice(0, 3).map((e) => e.sekolah);
+      group2Teams = teams.slice(3, 6).map((e) => e.sekolah);
+    } while ((group1Teams.includes("SMP Negeri 1 Singaraja (A)") && group1Teams.includes("SMP Negeri 1 Singaraja (B)")) || (group2Teams.includes("SMP Negeri 1 Singaraja (A)") && group2Teams.includes("SMP Negeri 1 Singaraja (B)")));
     document.querySelectorAll(".group ul li").forEach((e, i) => {
       e.childNodes[3].innerHTML = teams[i].sekolah;
       e.childNodes[1].setAttribute("src", teams[i].logo);
